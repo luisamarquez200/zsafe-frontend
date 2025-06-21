@@ -1,0 +1,44 @@
+.form-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.simulation-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.simulation-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.button-container {
+  text-align: right;
+
+  button {
+    min-width: 120px;
+    font-weight: 500;
+  }
+}

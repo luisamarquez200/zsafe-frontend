@@ -1,0 +1,59 @@
+<mat-card class="result-card">
+  <mat-card-title class="result-title">Resultado de la Estrategia</mat-card-title>
+  <mat-divider></mat-divider>
+
+  <mat-card-content>
+    <p><strong>Fecha:</strong> {{ simulation.fecha | date: 'medium' }}</p>
+    <p><strong>Balas usadas:</strong> {{ simulation.balasDisponibles }}</p>
+    <p><strong>Tiempo usado:</strong> {{ simulation.tiempoDisponible }}</p>
+    <p><strong>Puntaje total:</strong> {{ puntajeTotal }}</p>
+
+    <div class="zombies-list" *ngIf="simulation && simulation.eliminados && simulation.eliminados.length > 0"
+>
+      <h4 class="zombies-title">Zombies eliminados:</h4>
+
+      <div class="table-wrapper">
+        <table mat-table [dataSource]="simulation.eliminados" class="mat-elevation-z2 zombies-table">
+
+          <ng-container matColumnDef="zombieId">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let z">{{ z.zombieId }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="tipo">
+            <th mat-header-cell *matHeaderCellDef>Tipo</th>
+            <td mat-cell *matCellDef="let z">{{ z.zombie.tipo }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="balas">
+            <th mat-header-cell *matHeaderCellDef>Balas</th>
+            <td mat-cell *matCellDef="let z">{{ z.zombie.balasNecesarias }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="tiempo">
+            <th mat-header-cell *matHeaderCellDef>Tiempo</th>
+            <td mat-cell *matCellDef="let z">{{ z.zombie.tiempoDisparo }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="puntaje">
+            <th mat-header-cell *matHeaderCellDef>Puntaje</th>
+            <td mat-cell *matCellDef="let z">{{ z.zombie.puntaje }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="amenaza">
+            <th mat-header-cell *matHeaderCellDef>Amenaza</th>
+            <td mat-cell *matCellDef="let z">{{ z.zombie.nivelAmenaza }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="obtenido">
+            <th mat-header-cell *matHeaderCellDef>Obtenido</th>
+            <td mat-cell *matCellDef="let z">{{ z.puntosObtenidos }}</td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
