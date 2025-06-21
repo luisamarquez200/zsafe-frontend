@@ -9,7 +9,7 @@ import { RegisterStrategyDto } from '../models/register-strategy.dto';
   providedIn: 'root'
 })
 export class SimulationService {
-  private apiUrl = 'http://localhost:5176/api/defense';
+  private apiUrl = 'https://zsafe-defense.onrender.com/api/defense';
   private apiKey = 'zsafe-secret-1234';
 
   constructor(private http: HttpClient) {}

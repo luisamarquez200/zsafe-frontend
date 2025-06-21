@@ -9,7 +9,7 @@ describe('SimulationService', () => {
   let service: SimulationService;
   let httpMock: HttpTestingController;
 
-  const apiUrl = 'http://localhost:5176/api/defense';
+  const apiUrl = 'https://zsafe-defense.onrender.com/api/defense';
   const apiKey = 'zsafe-secret-1234';
 
   beforeEach(() => {
