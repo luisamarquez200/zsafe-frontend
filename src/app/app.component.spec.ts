@@ -14,16 +14,23 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'zsafe-frontend' title`, () => {
+  it(`should have the title 'zsafe-frontend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('zsafe-frontend');
   });
 
-  it('should render title', () => {
+  it('should render the toolbar title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, zsafe-frontend');
+    expect(compiled.querySelector('mat-toolbar')?.textContent).toContain('Z-SAFE - Defensa Antizombies');
+  });
+
+  it('should contain a router-outlet', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('router-outlet')).not.toBeNull();
   });
 });
