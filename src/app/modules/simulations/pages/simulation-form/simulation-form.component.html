@@ -1,37 +1,35 @@
 <div class="form-container">
-  <form [formGroup]="form">
-    <mat-card class="simulation-card">
-      <mat-card-title class="simulation-title">Simular estrategia</mat-card-title>
+    <form [formGroup]="form">
+        <mat-card class="simulation-card">
+            <mat-card-title class="simulation-title">Simular estrategia</mat-card-title>
 
-      <div class="form-fields">
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Balas disponibles</mat-label>
-          <input matInput type="number" formControlName="bullets" />
-        </mat-form-field>
+            <div class="form-fields">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Balas disponibles</mat-label>
+                    <input matInput type="number" formControlName="bullets" />
+                </mat-form-field>
 
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Tiempo disponible (seg)</mat-label>
-          <input matInput type="number" formControlName="secondsAvailable" />
-        </mat-form-field>
-      </div>
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Tiempo disponible (seg)</mat-label>
+                    <input matInput type="number" formControlName="secondsAvailable" />
+                </mat-form-field>
+            </div>
 
-      <div class="button-container">
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="submit()"
-          [disabled]="loading">
-          Simular
-        </button>
-      </div>
-    </mat-card>
+            <div class="button-container">
+                <button mat-raised-button color="primary" (click)="submit()" [disabled]="loading"
+                    class="simulate-button">
+                        Simular
+                    
+                </button>
 
-   <app-strategy-form
-  *ngIf="simulationResult"
-  [simulation]="simulationResult"
-  (strategyRegistered)="refetchSimulationHistory()">
-</app-strategy-form>
+            </div>
 
-    <app-simulation-ranking [simulation]="simulationHistory"></app-simulation-ranking>
-  </form>
+        </mat-card>
+
+        <app-strategy-form *ngIf="simulationResult" [simulation]="simulationResult"
+            (strategyRegistered)="refetchSimulationHistory()">
+        </app-strategy-form>
+
+        <app-simulation-ranking [simulation]="simulationHistory"></app-simulation-ranking>
+    </form>
 </div>
