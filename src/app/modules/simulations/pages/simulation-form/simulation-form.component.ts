@@ -63,14 +63,18 @@ export class SimulationFormComponent {
   }
 
   refetchSimulationHistory(): void {
-    this.simulationService.getAllSimulations().subscribe({
-      next: (data) => {
-        const list = (data as any)?.$values ?? data;
-        this.simulationHistory = list;
-      },
-      error: (err) => {
-        console.error('Error al refrescar historial:', err);
-      }
-    });
-  }
+  this.simulationService.getAllSimulations().subscribe({
+    next: (data) => {
+      const list = (data as any)?.$values ?? data;
+      this.simulationHistory = list.map((sim: any) => ({
+        ...sim,
+        eliminados: sim.eliminados?.$values ?? sim.eliminados ?? []
+      }));
+    },
+    error: (err) => {
+      console.error('Error al refrescar historial:', err);
+    }
+  });
+}
+
 }

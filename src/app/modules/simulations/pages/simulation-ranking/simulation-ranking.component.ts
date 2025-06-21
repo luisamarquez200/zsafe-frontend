@@ -11,14 +11,23 @@ import { MaterialModule } from '../../../../shared/material.modules';
   styleUrl: './simulation-ranking.component.scss'
 })
 export class SimulationRankingComponent {
-  @Input() simulation : Simulation [] =[];
+  @Input() simulation: Simulation[] = [];
 
-  getScore(simulation : Simulation): number{
-    return simulation.eliminados.reduce((sum, e) => sum + e.puntosObtenidos, 0)
+  getEliminados(sim: Simulation): any[] {
+    const eliminados: any = sim.eliminados;
+    return Array.isArray(eliminados?.$values)
+      ? eliminados.$values
+      : Array.isArray(eliminados)
+        ? eliminados
+        : [];
   }
 
-  get sortedSimulation(): Simulation[]{
-    return [...this.simulation].sort((a,b) => this.getScore(b) - this.getScore(a));
+
+  getScore(sim: Simulation): number {
+    return this.getEliminados(sim).reduce((acc, z) => acc + z.puntosObtenidos, 0);
   }
 
+  get sortedSimulation(): Simulation[] {
+    return [...this.simulation].sort((a, b) => this.getScore(b) - this.getScore(a));
+  }
 }

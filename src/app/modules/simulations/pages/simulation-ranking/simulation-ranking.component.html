@@ -2,19 +2,18 @@
   <mat-card-title class="ranking-title">Ranking de Estrategias</mat-card-title>
   <mat-divider></mat-divider>
 
-  <mat-list *ngIf="simulation.length > 0" class="ranking-list">
-    <mat-list-item *ngFor="let sim of sortedSimulation; index as i" class="ranking-item">
-      <div class="ranking-content">
-        <span class="ranking-position">#{{ i + 1 }}</span>
-        <span class="ranking-details">
-          <strong>Fecha:</strong> {{ sim.fecha | date: 'medium' }} <br />
-          <strong>Balas:</strong> {{ sim.balasDisponibles }} |
-          <strong>Tiempo:</strong> {{ sim.tiempoDisponible }} |
-          <strong>Puntaje:</strong> {{ getScore(sim) }}
-        </span>
-      </div>
-    </mat-list-item>
-  </mat-list>
+<div *ngIf="simulation.length > 0" class="ranking-list">
+  <div *ngFor="let sim of sortedSimulation; index as i" class="ranking-item">
+    <div class="ranking-position">#{{ i + 1 }}</div>
+    <div class="ranking-details">
+      <div><strong>Fecha:</strong> {{ sim.fecha | date:'short' }}</div>
+      <div><strong>Balas:</strong> {{ sim.balasDisponibles }}</div>
+      <div><strong>Tiempo:</strong> {{ sim.tiempoDisponible }} seg</div>
+      <div><strong>Puntaje:</strong> {{ getScore(sim) }}</div>
+    </div>
+  </div>
+</div>
+
 
   <div *ngIf="simulation.length === 0" class="empty-state">
     No hay estrategias registradas.

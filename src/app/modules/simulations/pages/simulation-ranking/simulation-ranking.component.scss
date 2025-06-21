@@ -1,54 +1,47 @@
 .ranking-card {
-  margin-top: 32px;
-  padding: 16px;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .ranking-title {
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: 600;
   color: #3f51b5;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 }
 
 .ranking-list {
-  margin-top: 12px;
+  margin-top: 1rem;
 }
 
 .ranking-item {
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
-  padding: 12px 0;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.ranking-content {
-  display: flex;
-  flex-direction: column;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
 }
 
 .ranking-position {
+  font-size: 1.3rem;
   font-weight: bold;
-  font-size: 1.1rem;
   color: #3f51b5;
-  margin-bottom: 4px;
+  margin-right: 1.5rem;
+  min-width: 3rem;
+  text-align: center;
 }
 
 .ranking-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   font-size: 0.95rem;
-  color: #333;
-
-  strong {
-    color: #000;
-  }
+  line-height: 1.4;
 }
 
 .empty-state {
+  margin-top: 1rem;
   text-align: center;
-  color: #757575;
-  margin-top: 16px;
+  color: #888;
   font-style: italic;
 }
